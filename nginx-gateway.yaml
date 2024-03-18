@@ -163,7 +163,7 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: metadata.name
-        image: ghcr.dockerproxy.com/nginxinc/nginx-gateway-fabric:1.1.0
+        image: ghcr.io/nginxinc/nginx-gateway-fabric:1.1.0
         imagePullPolicy: IfNotPresent
         name: nginx-gateway
         ports:
@@ -177,14 +177,7 @@ spec:
             port: health
           initialDelaySeconds: 3
           periodSeconds: 1
-        securityContext:
-          allowPrivilegeEscalation: false
-          capabilities:
-            add:
-            - KILL
-            drop:
-            - ALL
-          readOnlyRootFilesystem: true
+        securityContext: {}
         volumeMounts:
         - name: nginx-conf
           mountPath: /etc/nginx/conf.d
@@ -200,13 +193,7 @@ spec:
           name: http
         - containerPort: 443
           name: https
-        securityContext:
-          capabilities:
-            add:
-            - NET_BIND_SERVICE
-            drop:
-            - ALL
-          readOnlyRootFilesystem: true
+        securityContext: {}
         volumeMounts:
         - name: nginx-conf
           mountPath: /etc/nginx/conf.d
@@ -221,9 +208,7 @@ spec:
       terminationGracePeriodSeconds: 30
       serviceAccountName: nginx-gateway
       shareProcessNamespace: true
-      securityContext:
-        fsGroup: 1001
-        runAsNonRoot: true
+      securityContext: {}
       volumes:
       - name: nginx-conf
         emptyDir: {}
