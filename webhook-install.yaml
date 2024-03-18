@@ -111,13 +111,7 @@ spec:
         - name: webhook-certs
           mountPath: /etc/certs
           readOnly: true
-        securityContext:
-          allowPrivilegeEscalation: false
-          readOnlyRootFilesystem: true
-          runAsNonRoot: true
-          capabilities:
-            drop:
-            - "ALL"
+        securityContext: {}
       volumes:
       - name: webhook-certs
         secret:
@@ -228,17 +222,10 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: metadata.namespace
-        securityContext:
-          allowPrivilegeEscalation: false
-          readOnlyRootFilesystem: true
-          runAsNonRoot: true
-          capabilities:
-            drop:
-            - "ALL"
+        securityContext: {}
       restartPolicy: OnFailure
       serviceAccountName: gateway-api-admission
-      securityContext:
-        runAsNonRoot: true
+      securityContext: {}
 ---
 apiVersion: batch/v1
 kind: Job
@@ -271,14 +258,7 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: metadata.namespace
-        securityContext:
-          allowPrivilegeEscalation: false
-          readOnlyRootFilesystem: true
-          runAsNonRoot: true
-          capabilities:
-            drop:
-            - "ALL"
+        securityContext: {}
       restartPolicy: OnFailure
       serviceAccountName: gateway-api-admission
-      securityContext:
-        runAsNonRoot: true
+      securityContext: {}
