@@ -112,6 +112,7 @@ spec:
           mountPath: /etc/certs
           readOnly: true
         securityContext: {}
+        serviceAccount: "gateway-api-admission"}
       volumes:
       - name: webhook-certs
         secret:
