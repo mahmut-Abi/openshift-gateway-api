@@ -1,0 +1,32 @@
+allowHostPorts: false
+priority: null
+requiredDropCapabilities:
+  - ALL
+allowPrivilegedContainer: false
+runAsUser:
+  type: RunAsAny
+users:
+  - 'system:serviceaccount:gateway-system:gateway-api-admission'
+allowHostDirVolumePlugin: false
+seccompProfiles:
+  - '*'
+allowHostIPC: false
+seLinuxContext:
+  type: RunAsAny
+readOnlyRootFilesystem: true
+metadata:
+  name: gateway-api-scc
+fsGroup:
+  type: RunAsAny
+groups: []
+kind: SecurityContextConstraints
+defaultAddCapabilities: []
+supplementalGroups:
+  type: RunAsAny
+volumes:
+  - Secret
+allowHostPID: false
+allowHostNetwork: true
+allowPrivilegeEscalation: true
+apiVersion: security.openshift.io/v1
+allowedCapabilities: []
