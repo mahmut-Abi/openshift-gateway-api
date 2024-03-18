@@ -163,7 +163,7 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: metadata.name
-        image: ghcr.io/nginxinc/nginx-gateway-fabric:1.1.0
+        image: ghcr.dockerproxy.com/nginxinc/nginx-gateway-fabric:1.1.0
         imagePullPolicy: IfNotPresent
         name: nginx-gateway
         ports:
@@ -185,7 +185,7 @@ spec:
           mountPath: /etc/nginx/secrets
         - name: nginx-run
           mountPath: /var/run/nginx
-      - image: ghcr.io/nginxinc/nginx-gateway-fabric/nginx:1.1.0
+      - image: ghcr.dockerproxy.com/nginxinc/nginx-gateway-fabric/nginx:1.1.0
         imagePullPolicy: IfNotPresent
         name: nginx
         ports:
