@@ -1,0 +1,33 @@
+allowHostPorts: false
+priority: null
+requiredDropCapabilities:
+  - ALL
+allowPrivilegedContainer: false
+runAsUser:
+  type: RunAsAny
+users:
+  - 'system:serviceaccount:nginx-gateway:nginx-gateway'
+allowHostDirVolumePlugin: false
+seccompProfiles:
+  - '*'
+allowHostIPC: false
+seLinuxContext:
+  type: RunAsAny
+readOnlyRootFilesystem: true
+metadata:
+  name: nginx-gateway-scc
+fsGroup:
+  type: RunAsAny
+groups: []
+kind: SecurityContextConstraints
+defaultAddCapabilities: []
+supplementalGroups:
+  type: RunAsAny
+volumes: []
+allowHostPID: false
+allowHostNetwork: true
+allowPrivilegeEscalation: true
+apiVersion: security.openshift.io/v1
+allowedCapabilities:
+  - NET_BIND_SERVICE
+  - KILL
