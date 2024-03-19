@@ -1,5 +1,11 @@
-kind: Deployment
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: gateway-test
+---
 apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: coffee
   namespace: gateway-test
